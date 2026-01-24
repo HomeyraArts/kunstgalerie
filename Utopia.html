@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Kunstgalerie – Originale</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f6f6f6;
+            color: #333;
+        }
+
+        header {
+            background-color: #111;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ddd;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        section {
+            padding: 1px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Galerie */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .artwork {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .artwork img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .artwork-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .price {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .buy-button {
+            display: block;
+            text-align: center;
+            background-color: #111;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .buy-button:hover {
+            background-color: #444;
+        }
+
+        /* Über mich */
+        .about {
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Kontakt */
+        .contact {
+            text-align: center;
+        }
+
+        footer {
+            background-color: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Meine Kunstgalerie</h1>
+    <p>Originale Kunstwerke</p>
+    <nav>
+        <a href="#werke">Werke</a>
+        <a href="#about">Über mich</a>
+        <a href="#contact">Kontakt</a>
+    </nav>
+</header>
+
+<section id="werke">
+    <h2>Kunstwerke</h2>
+
+    <div class="gallery">
+        <div class="artwork">
+            <img src="images\Utopia.JPG" alt="Kunstwerk 1">
+            <div class="artwork-content">
+                <h3>Utopia</h3>
+		<p>Es gibt einen Ort, den ich nie mit den Augen gesehen habe, aber ich spüre ihn mit dem Herzen. Ein Ort ohne Krieg. Ohne Schreie. Ohne Angst.
+Dort wachsen keine Waffen, sondern Blumen. Dort fliegen keine Bomben, sondern Libellen. Die Sonne scheint jeden Tag, aber sie brennt nicht – sie wärmt, wie die Hand einer Mutter. Niemand läuft davon. Niemand versteckt sich. Niemand schlägt, niemand schreit. Man hört nur das leise Summen der Insekten, das Flüstern der Bäume, und das ruhige Atmen der Welt. Ich male diesen Ort, weil ich ihn brauche. Weil viele ihn brauchen. Weil es ihn noch nicht gibt – aber vielleicht, wenn wir ihn uns vorstellen, wenn wir ihn malen, wenn wir daran glauben, dann kann er Wirklichkeit werden. Ein Ort, wo Mädchen nicht weinen müssen. Wo Väter keine Wunden tragen. Wo Frauen frei tanzen können. Ein Ort, den ich Utopia nenne. Und jedes Mal, wenn ich die Farben berühre, bin ich schon ein Stück dort.</p>
+                <p><strong>Materials:</strong> Mixed media piece using watercolour and coloured pencil on wartecolour paper</p>
+                <p><strong>Size:</strong> 36 × 48 cm</p>
+                <p><strong>Price:</strong> 700 €</p>
+                <a class="buy-button" href="#">Jetzt kaufen</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="about">
+    <h2>Über mich</h2>
+    <div class="about">
+        <p>
+            Ich bin freischaffende Künstlerin und arbeite mit verschiedenen
+            Techniken zwischen Abstraktion und Realismus.
+            Jedes Werk ist ein Unikat und mit viel Liebe zum Detail geschaffen.
+        </p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Kontakt</h2>
+    <div class="contact">
+        <p>Fragen zu Werken oder Auftragsarbeiten?</p>
+        <p>E-Mail: <strong>masumeh.dezfuli@gmail.com</strong></p>
+    </div>
+</section>
+
+<footer>
+    © 2026 Meine Kunstgalerie · Alle Rechte vorbehalten
+</footer>
+
+</body>
+</html>
