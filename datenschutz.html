@@ -47,12 +47,23 @@
             text-align: center;
             margin-bottom: auto;
         }
-
+/*.centered-list {
+    list-style-position: inside; 
+    text-align: center;          
+    padding: 0;                  
+    margin: 0;                   
+}*/
         .horizontal-list {
-            list-style-position: inside;
-            text-align: center;
-            padding: 0; 
-            margin: 0;  
+            list-style-type: disc;
+            display: flex;
+            justify-content: center;
+            padding-left: 0; 
+            gap: 20px;  
+        }
+
+        .horizontal-list li {
+            display: flex;
+            align-items: center;
         }
 
         p {
@@ -213,6 +224,7 @@ verarbeitet werden, haben Sie das Recht, dieser Verarbeitung zu widersprechen.
 </body>
 
 </html>
+
 
 
 
