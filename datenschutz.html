@@ -57,15 +57,16 @@
         .centered-list li {
             display: grid;
             grid-template-columns: auto auto; /* feste Bullet-Spalte */
-            align-items: center;
+            align-items: right;
             margin: auto 0;
             /*text-align: left;*/
         }
 
         .centered-list li::before {
             content: "•";
-            text-align: left;        /* alle Bullets exakt untereinander */
+           /* text-align: left;   */     /* alle Bullets exakt untereinander */
             margin: 0;
+            align-items: center;
             padding: 0;
             
         }
@@ -266,6 +267,7 @@ verarbeitet werden, haben Sie das Recht, dieser Verarbeitung zu widersprechen.
 </body>
 
 </html>
+
 
 
 
