@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Kunstgalerie – Originale</title>
+	<title>Bild mit Lupe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
@@ -110,6 +111,16 @@
             padding: 20px;
             font-Größe: 14px;
         }
+
+		    #lens {
+      position: absolute;
+      border: 2px solid black;
+      width: 100px;
+      height: 100px;
+      background-repeat: no-repeat;
+      display: none;
+      cursor: none;
+    }
     </style>
 </head>
 
@@ -150,15 +161,44 @@ Heute weiß ich: Der Baum war immer da. Er wuchs in unseren Erinnerungen, in uns
 
     </div>
 
+	  <script>
+    const img = document.getElementById("myImage");
+    const lens = document.getElementById("lens");
+
+    lens.style.backgroundImage = `url('${img.src}')`;
+    lens.style.backgroundSize =
+      (img.width * 2) + "px " + (img.height * 2) + "px";
+
+    img.addEventListener("mousemove", moveLens);
+    lens.addEventListener("mousemove", moveLens);
+    img.addEventListener("mouseenter", () => lens.style.display = "block");
+    img.addEventListener("mouseleave", () => lens.style.display = "none");
+
+    function moveLens(e) {
+      const rect = img.getBoundingClientRect();
+      let x = e.clientX - rect.left - lens.offsetWidth / 2;
+      let y = e.clientY - rect.top - lens.offsetHeight / 2;
+
+      x = Math.max(0, Math.min(x, img.width - lens.offsetWidth));
+      y = Math.max(0, Math.min(y, img.height - lens.offsetHeight));
+
+      lens.style.left = x + "px";
+      lens.style.top = y + "px";
+      lens.style.backgroundPosition =
+        `-${x * 2}px -${y * 2}px`;
+    }
+  </script>
+
+</body>
+
 <footer>
     © 2026 Homeyra · Alle Rechte vorbehalten
   <a href="impressum.html">Impressum</a>
   <a href="datenschutz.html">Datenschutz</a>
 </footer>
 
-</body>
-
 </html>
+
 
 
 
