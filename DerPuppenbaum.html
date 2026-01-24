@@ -112,16 +112,19 @@
             font-Größe: 14px;
         }
 
-		.zoom-img {
-  			width: 300px;
-  			transition: transform 0.3s ease;
-  			cursor: zoom-in;
+		.img-container {
+  			position: relative;
 		}
 
-.zoom-img:hover {
-  transform: scale(1.5);
-}
-    </style>
+		#lens {
+  			position: absolute;
+  			border: 2px solid #000;
+  			width: 100px;
+  			height: 100px;
+  			background-repeat: no-repeat;
+  			display: none;
+  			cursor: none;
+		}
 	
 </head>
 
@@ -164,6 +167,7 @@
 </footer>
 
 </html>
+
 
 
 
