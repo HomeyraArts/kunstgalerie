@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Kunstgalerie – Originale</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f6f6f6;
+            color: #333;
+        }
+
+        header {
+            background-color: #111;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ddd;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        section {
+            padding: 1px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Galerie */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .artwork {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .artwork img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .artwork-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .price {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .buy-button {
+            display: block;
+            text-align: center;
+            background-color: #111;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .buy-button:hover {
+            background-color: #444;
+        }
+
+        /* Über mich */
+        .about {
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Kontakt */
+        .contact {
+            text-align: center;
+        }
+
+        footer {
+            background-color: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header><h2>Datenschutzerklärung</h2>
+
+<p>
+Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen.
+Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend
+der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
+</p>
+
+<h3>1. Verantwortliche Stelle</h3>
+<p>
+Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
+Tom León Rojas<br>
+Garrestraße 10<br>
+E-Mail: tomleonrojas@outlook.com
+</p>
+
+<h3>2. Erhebung und Speicherung personenbezogener Daten</h3>
+<p>
+Beim Besuch dieser Website werden durch den Hosting-Anbieter automatisch
+Informationen erhoben, die Ihr Browser übermittelt. Dies sind insbesondere:
+</p>
+
+<ul>
+  <li>IP-Adresse</li>
+  <li>Datum und Uhrzeit der Anfrage</li>
+  <li>Browsertyp und Version</li>
+  <li>Betriebssystem</li>
+</ul>
+
+<p>
+Diese Daten sind technisch erforderlich, um Ihnen unsere Website anzuzeigen,
+und werden nicht zur Identifikation Ihrer Person verwendet.
+</p>
+
+<h3>3. Kontaktaufnahme per E-Mail</h3>
+<p>
+Wenn Sie uns per E-Mail kontaktieren, werden Ihre Angaben zwecks Bearbeitung
+der Anfrage gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+</p>
+
+<h3>4. Hosting</h3>
+<p>
+Diese Website wird über GitHub Pages gehostet.
+Beim Aufruf der Seite werden Daten an Server von GitHub übertragen.
+Weitere Informationen finden Sie in der Datenschutzerklärung von GitHub:
+https://docs.github.com/de/site-policy/privacy-policies/github-privacy-statement
+</p>
+
+<h3>5. Ihre Rechte</h3>
+<p>
+Sie haben jederzeit das Recht auf Auskunft über Ihre gespeicherten personenbezogenen
+Daten, deren Herkunft, Empfänger und den Zweck der Datenverarbeitung sowie ein Recht
+auf Berichtigung, Sperrung oder Löschung dieser Daten.
+</p>
+
+<h3>6. Widerspruchsrecht</h3>
+<p>
+Sofern Ihre personenbezogenen Daten auf Grundlage von berechtigten Interessen
+verarbeitet werden, haben Sie das Recht, dieser Verarbeitung zu widersprechen.
+</p>
+
+<footer>
+    © 2026 Meine Kunstgalerie · Alle Rechte vorbehalten
+</footer>
+
+</header>
+
+</body>
+</html>

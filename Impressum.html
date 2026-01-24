@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kunstgalerie – Originale</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f6f6f6;
+            color: #333;
+        }
+
+        header {
+            background-color: #111;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ddd;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        section {
+            padding: 1px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Galerie */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .artwork {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .artwork img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .artwork-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .price {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .buy-button {
+            display: block;
+            text-align: center;
+            background-color: #111;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .buy-button:hover {
+            background-color: #444;
+        }
+
+        /* Über mich */
+        .about {
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Kontakt */
+        .contact {
+            text-align: center;
+        }
+
+        footer {
+            background-color: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+	<h2>Impressum</h2>
+
+	<p>Angaben gemäß § 5 TMG</p>
+
+		<p>
+		Homeyra<br>
+		Masoumehsadat Dezfouli<br>
+		Garrestraße 10<br>
+		53127 Bonn<br>
+		Deutschland
+		</p>
+
+	<p>
+	Kontakt:<br>
+	E-Mail: masumeh.dezfuli@gmail.com
+	</p>
+
+	<p>
+	Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>
+	Tom León Rojas<br>
+	Garrestraße 10<br>
+	53127 Bonn<br>
+	Deutschland
+	</p>
+
+</header>
+
+<footer>
+    © 2026 Meine Kunstgalerie · Alle Rechte vorbehalten
+</footer>
+
+</body>
+</html>
