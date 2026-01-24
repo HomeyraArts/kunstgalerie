@@ -149,31 +149,6 @@
         	<div class="artwork">
             	<img id="myImage" img src="images\DerPuppenbaum.JPG" >
 				<div id="lens"></div>
-<script>
-const img = document.getElementById("myImage");
-const lens = document.getElementById("lens");
-
-lens.style.backgroundImage = `url('${img.src}')`;
-lens.style.backgroundSize = (img.width * 2) + "px " + (img.height * 2) + "px";
-
-img.addEventListener("mousemove", moveLens);
-lens.addEventListener("mousemove", moveLens);
-img.addEventListener("mouseenter", () => lens.style.display = "block");
-img.addEventListener("mouseleave", () => lens.style.display = "none");
-
-function moveLens(e) {
-  const rect = img.getBoundingClientRect();
-  let x = e.clientX - rect.left - lens.offsetWidth / 2;
-  let y = e.clientY - rect.top - lens.offsetHeight / 2;
-
-  x = Math.max(0, Math.min(x, img.width - lens.offsetWidth));
-  y = Math.max(0, Math.min(y, img.height - lens.offsetHeight));
-
-  lens.style.left = x + "px";
-  lens.style.top = y + "px";
-  lens.style.backgroundPosition = `-${x * 2}px -${y * 2}px`;
-}
-</script>
 		
             	<div class="artwork-content">
 	          		<p><strong>Geschichte: </strong>Es war einmal ein kleiner Garten, in dem zwei Mädchen lachten, spielten und manchmal auch stritten. Die eine hieß Monireh, die andere… war ich. Wir waren fast gleich alt – nur ein Jahr trennte uns – und doch fühlten wir uns wie Zwillinge, die ein Herz teilten.
@@ -199,6 +174,7 @@ function moveLens(e) {
 </footer>
 
 </html>
+
 
 
 
