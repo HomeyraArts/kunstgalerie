@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Kunstgalerie – Originale</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f6f6f6;
+            color: #333;
+        }
+
+        header {
+            background-color: #111;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ddd;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        section {
+            padding: 1px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+			font-size: 60px;
+        }
+
+        /* Galerie */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .artwork {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .artwork img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .artwork-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .Preis {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .buy-button {
+            display: block;
+            text-align: center;
+            background-color: #111;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .buy-button:hover {
+            background-color: #444;
+        }
+
+        /* Über mich */
+        .about {
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Kontakt */
+        .contact {
+            text-align: center;
+        }
+
+        footer {
+            background-color: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-Größe: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Homeyras Kunstgalerie</h1>
+    <p>Originale Kunstwerke</p>
+    <nav>
+        <a href="index.html">Werke</a>
+        <a href="uebermich.html">Über mich</a>
+        <a href="impressum.html">Kontakt</a>
+    </nav>
+</header>
+
+<section id="werke">
+    <h2>Our safe Space under the mullberry tree</h2>
+
+    <div class="gallery">
+
+        <div class="artwork">
+            <img src="images\OursafeSpace,underthemullberrytree.JPG" alt="Kunstwerk 3">
+            <div class="artwork-content">
+                
+		<p><strong>Geschichte: </strong>Die warme Luft streichelte einst ihre Haut, das Kichern hallte laut zwischen den Bäumen, und die Tage schienen endlos – leicht, sorglos, voller Leben. Wo sind sie geblieben?
+
+Jetzt ist die Luft schwer, die Stimmen hart. Die Welt hat ihre Farbe verloren. Die Menschen sehen sie nicht mehr mit offenen Herzen an. Ihre Blicke sind kalt, ihre Worte scharf, ihre Stimmen ein endloses Kreischen – wie wütende Raben, die sich um sie drängen.
+
+Doch sie steht. Unerschütterlich. Die Raben mögen schreien, doch sie wird ihnen nicht gehören. Sie wird nicht fallen. Sie trägt die Erinnerungen in sich, warm wie die Sonne von damals. Und nichts kann ihr das nehmen.</p>
+		<p><strong>Materialien:</strong> Painting with acrylic markers and colored pencils on black watercolor paper</p>
+		<p><strong>Größe:</strong> 42 × 29,7 cm</p>
+                <p><strong>Preis:</strong> tbd €</p>
+                <a class="buy-button" href="#">Jetzt kaufen</a>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    © 2026 Homeyra · Alle Rechte vorbehalten
+  <a href="impressum.html">Impressum</a>
+  <a href="datenschutz.html">Datenschutz</a>
+</footer>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
