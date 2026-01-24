@@ -112,55 +112,51 @@
             font-Größe: 14px;
         }
 
-		    #lens {
-      position: absolute;
-      border: 2px solid black;
-      width: 100px;
-      height: 100px;
-      background-repeat: no-repeat;
-      display: none;
-      cursor: none;
-    }
+		.zoom-img {
+  			width: 300px;
+  			transition: transform 0.3s ease;
+  			cursor: zoom-in;
+		}
+
+.zoom-img:hover {
+  transform: scale(1.5);
+}
     </style>
+	
 </head>
 
 <body>
 
-<header>
-    <h1>Homeyras Kunstgalerie</h1>
-    <p>Originale Kunstwerke</p>
-    <nav>
-        <a href="index.html">Originale Werke</a>
-		<a href="https://www.inprnt.com/profile/homeira/">Prints</a>
-        <a href="uebermich.html">Über mich</a>
-        <a href="impressum.html">Kontakt</a>
-    </nav>
-</header>
+	<header>
+    	<h1>Homeyras Kunstgalerie</h1>
+    	<p>Originale Kunstwerke</p>
+    		<nav>
+        		<a href="index.html">Originale Werke</a>
+				<a href="https://www.inprnt.com/profile/homeira/">Prints</a>
+        		<a href="uebermich.html">Über mich</a>
+        		<a href="impressum.html">Kontakt</a>
+    		</nav>
+	</header>
 
-<section id="werke">
-    <h2>Der Puppenbaum</h2>
-
-    <div class="gallery">
-
-        <div class="artwork">
-            <img src="images\DerPuppenbaum.JPG" alt="Kunstwerk 3">
-            <div class="artwork-content">
-                
-		<p><strong>Geschichte: </strong>Es war einmal ein kleiner Garten, in dem zwei Mädchen lachten, spielten und manchmal auch stritten. Die eine hieß Monireh, die andere… war ich. Wir waren fast gleich alt – nur ein Jahr trennte uns – und doch fühlten wir uns wie Zwillinge, die ein Herz teilten.
-Eines Tages bekamen wir ein Geschenk: eine wunderschöne Puppe. Wir beschlossen, sie zu teilen. Ein paar Tage schlief sie in Monirehs Armen, ein paar Tage in meinen. Wir hüteten sie wie einen Schatz… zumindest am Anfang.
-Doch nach einer Weile kam der Streit. Ich schnitt ihre Fingernägel, dann – in einem Anfall kindlicher Neugier – ihre Haare. Monireh weinte. Ich verstand nicht ganz, warum, aber ich wusste: So konnten wir nicht weitermachen.
-Eines Nachmittags, als die Sonne den Garten golden färbte, nahm ich die Puppe und trug sie zum Pflaumenbaum. Dort grub ich mit meinen kleinen Händen ein Loch. Ganz leise flüsterte ich ihr etwas ins Ohr: „Schlaf hier, bis du wächst. Und eines Tages wirst du ein Baum sein, der Puppen trägt. Dann haben wir beide genug, und wir müssen nie wieder streiten.“
-Ich bedeckte sie mit Erde, klopfte sanft den Boden fest und wartete. Tage vergingen. Wochen. Monaten.Der Puppenbaum wuchs nicht. Aber in meiner Vorstellung stand er längst da – hoch, mit Ästen voller Puppen, jede bereit, von einem Mädchen in die Arme genommen zu werden.
-Heute weiß ich: Der Baum war immer da. Er wuchs in unseren Erinnerungen, in unserer Liebe zueinander. Und vielleicht – ganz vielleicht – trägt er seine Puppen nur in einer Welt, die man mit dem Herzen sieht.</p>
-                <p><strong>Materialien:</strong> Mixed media piece using watercolour and coloured pencil on wartecolour paper</p>
-		<p><strong>Größe:</strong> 36 × 48 cm</p>
-                <p><strong>Preis:</strong> 750 €</p>
-                <a class="buy-button" href="#">Jetzt kaufen</a>
-            </div>
-        </div>
-
-    </div>
-
+	<section id="werke">
+    	<h2>Der Puppenbaum</h2>
+	    <div class="gallery">
+        	<div class="artwork">
+            	<img src="images\DerPuppenbaum.JPG" class="zoom-img" alt="Kunstwerk 3">
+            	<div class="artwork-content">
+	          		<p><strong>Geschichte: </strong>Es war einmal ein kleiner Garten, in dem zwei Mädchen lachten, spielten und manchmal auch stritten. Die eine hieß Monireh, die andere… war ich. Wir waren fast gleich alt – nur ein Jahr trennte uns – und doch fühlten wir uns wie Zwillinge, die ein Herz teilten.
+					Eines Tages bekamen wir ein Geschenk: eine wunderschöne Puppe. Wir beschlossen, sie zu teilen. Ein paar Tage schlief sie in Monirehs Armen, ein paar Tage in meinen. Wir hüteten sie wie einen Schatz… zumindest am Anfang.
+					Doch nach einer Weile kam der Streit. Ich schnitt ihre Fingernägel, dann – in einem Anfall kindlicher Neugier – ihre Haare. Monireh weinte. Ich verstand nicht ganz, warum, aber ich wusste: So konnten wir nicht weitermachen.
+					Eines Nachmittags, als die Sonne den Garten golden färbte, nahm ich die Puppe und trug sie zum Pflaumenbaum. Dort grub ich mit meinen kleinen Händen ein Loch. Ganz leise flüsterte ich ihr etwas ins Ohr: „Schlaf hier, bis du wächst. Und eines Tages wirst du ein Baum sein, der Puppen trägt. Dann haben wir beide genug, und wir müssen nie wieder streiten.“
+					Ich bedeckte sie mit Erde, klopfte sanft den Boden fest und wartete. Tage vergingen. Wochen. Monaten.Der Puppenbaum wuchs nicht. Aber in meiner Vorstellung stand er längst da – hoch, mit Ästen voller Puppen, jede bereit, von einem Mädchen in die Arme genommen zu werden.
+					Heute weiß ich: Der Baum war immer da. Er wuchs in unseren Erinnerungen, in unserer Liebe zueinander. Und vielleicht – ganz vielleicht – trägt er seine Puppen nur in einer Welt, die man mit dem Herzen sieht.</p>
+            		<p><strong>Materialien:</strong> Mixed media piece using watercolour and coloured pencil on wartecolour paper</p>
+					<p><strong>Größe:</strong> 36 × 48 cm</p>
+            		<p><strong>Preis:</strong> 750 €</p>
+            		<a class="buy-button" href="#">Jetzt kaufen</a>
+            	</div>
+        	</div>
+   		</div>
 	  <script>
     const img = document.getElementById("myImage");
     const lens = document.getElementById("lens");
@@ -198,6 +194,7 @@ Heute weiß ich: Der Baum war immer da. Er wuchs in unseren Erinnerungen, in uns
 </footer>
 
 </html>
+
 
 
 
