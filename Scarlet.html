@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Kunstgalerie – Originale</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f6f6f6;
+            color: #333;
+        }
+
+        header {
+            background-color: #111;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ddd;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        section {
+            padding: 1px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+			font-size: 60px;
+        }
+
+        /* Galerie */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .artwork {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .artwork img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .artwork-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .Preis {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .buy-button {
+            display: block;
+            text-align: center;
+            background-color: #111;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .buy-button:hover {
+            background-color: #444;
+        }
+
+        /* Über mich */
+        .about {
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Kontakt */
+        .contact {
+            text-align: center;
+        }
+
+        footer {
+            background-color: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-Größe: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Homeyras Kunstgalerie</h1>
+    <p>Originale Kunstwerke</p>
+    <nav>
+        <a href="index.html">Werke</a>
+        <a href="uebermich.html">Über mich</a>
+        <a href="impressum.html">Kontakt</a>
+    </nav>
+</header>
+
+<section id="werke">
+    <h2>Scarlet</h2>
+
+    <div class="gallery">
+
+        <div class="artwork">
+            <img src="images\Scarlet.JPG" alt="Kunstwerk 3">
+            <div class="artwork-content">
+                
+		<p><strong>Geschichte: </strong>Es war einmal ein kleiner Garten, in dem zwei Mädchen lachten, spielten und manchmal auch stritten. Die eine hieß Monireh, die andere… war ich. Wir waren fast gleich alt – nur ein Jahr trennte uns – und doch fühlten wir uns wie Zwillinge, die ein Herz teilten.
+Eines Tages bekamen wir ein Geschenk: eine wunderschöne Puppe. Wir beschlossen, sie zu teilen. Ein paar Tage schlief sie in Monirehs Armen, ein paar Tage in meinen. Wir hüteten sie wie einen Schatz… zumindest am Anfang.
+Doch nach einer Weile kam der Streit. Ich schnitt ihre Fingernägel, dann – in einem Anfall kindlicher Neugier – ihre Haare. Monireh weinte. Ich verstand nicht ganz, warum, aber ich wusste: So konnten wir nicht weitermachen.
+Eines Nachmittags, als die Sonne den Garten golden färbte, nahm ich die Puppe und trug sie zum Pflaumenbaum. Dort grub ich mit meinen kleinen Händen ein Loch. Ganz leise flüsterte ich ihr etwas ins Ohr: „Schlaf hier, bis du wächst. Und eines Tages wirst du ein Baum sein, der Puppen trägt. Dann haben wir beide genug, und wir müssen nie wieder streiten.“
+Ich bedeckte sie mit Erde, klopfte sanft den Boden fest und wartete. Tage vergingen. Wochen. Monaten.Der Puppenbaum wuchs nicht. Aber in meiner Vorstellung stand er längst da – hoch, mit Ästen voller Puppen, jede bereit, von einem Mädchen in die Arme genommen zu werden.
+Heute weiß ich: Der Baum war immer da. Er wuchs in unseren Erinnerungen, in unserer Liebe zueinander. Und vielleicht – ganz vielleicht – trägt er seine Puppen nur in einer Welt, die man mit dem Herzen sieht.</p>
+                <p><strong>Materialien:</strong> Mixed media piece using watercolour and coloured pencil on wartecolour paper</p>
+		<p><strong>Größe:</strong> 24 × 18 cm</p>
+                <p><strong>Preis:</strong> tbd €</p>
+                <a class="buy-button" href="#">Jetzt kaufen</a>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    © 2026 Homeyra · Alle Rechte vorbehalten
+  <a href="impressum.html">Impressum</a>
+  <a href="datenschutz.html">Datenschutz</a>
+</footer>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
