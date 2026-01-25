@@ -219,8 +219,8 @@
   					let x = point.clientX - rect.left - lens.offsetWidth / 2;
   					let y = point.clientY - rect.top  - lens.offsetHeight / 2;
 
-					x = Math.max(- lens.offsetWidth / 2, Math.min(x, activeImg.width - lens.offsetWidth / 2;
-					y = Math.max( - lens.offsetHeight / 2, Math.min(y, activeImg.height - lens.offsetHeight / 2));
+					x = Math.max(-lens.offsetWidth/2, Math.min(x, activeImg.width - lens.offsetWidth/2));
+					y = Math.max(-lens.offsetHeight/2, Math.min(y, activeImg.height - lens.offsetHeight/2));
   					/*x = Math.max(0, Math.min(x, activeImg.width - lens.offsetWidth));
   					y = Math.max(0, Math.min(y, activeImg.height - lens.offsetHeight));*/
 
@@ -230,7 +230,7 @@
   					lens.style.backgroundPosition = `-${x * zoom}px -${y * zoom}px`;
 				}
 			</script>
-			}
+				
             	<div class="artwork-content">
 	          		<p><strong>Geschichte: </strong>Es war einmal ein kleiner Garten, in dem zwei Mädchen lachten, spielten und manchmal auch stritten. Die eine hieß Monireh, die andere… war ich. Wir waren fast gleich alt – nur ein Jahr trennte uns – und doch fühlten wir uns wie Zwillinge, die ein Herz teilten.
 					Eines Tages bekamen wir ein Geschenk: eine wunderschöne Puppe. Wir beschlossen, sie zu teilen. Ein paar Tage schlief sie in Monirehs Armen, ein paar Tage in meinen. Wir hüteten sie wie einen Schatz… zumindest am Anfang.
@@ -256,6 +256,7 @@
 </footer>
 
 </html>
+
 
 
 
