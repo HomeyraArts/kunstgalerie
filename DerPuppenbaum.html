@@ -149,7 +149,7 @@
 				</div>	
 
 			<script>
-			const zoom = 2.5; /* 🔍 CHANGE ZOOM HERE*/
+			const zoom = 2; /* 🔍 CHANGE ZOOM HERE*/
 			const lens = document.getElementById("lens");
 			let activeImg = null;
 
@@ -171,8 +171,7 @@
   				activeImg = img;
   				lens.style.display = "block";
   				lens.style.backgroundImage = `url('${img.src}')`;
-  				lens.style.backgroundSize =
-    			img.width * zoom + "px " + img.height * zoom + "px";
+  				lens.style.backgroundSize =	img.width * zoom + "px " + img.height * zoom + "px";
 				}
 
 				function deactivate() {
@@ -224,6 +223,7 @@
 </footer>
 
 </html>
+
 
 
 
