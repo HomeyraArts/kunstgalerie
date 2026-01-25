@@ -112,6 +112,8 @@
 		/* Standard Lupe */
 
 		#lens {
+			transition: opacity 0.3s;
+			opacity: 1;
   			position: absolute;
   			width: 220px;
   			height: 220px;
@@ -177,8 +179,10 @@
 
 				document.querySelectorAll(".zoom-img").forEach(img => {
 
-				img.addEventListener("mouseenter", () => activate(img));
-  				img.addEventListener("mouseleave", deactivate);
+				img.addEventListener("mouseenter", () => {lens.style.opacity = 0; 
+														 }); /* wieder einblenden*/
+  				img.addEventListener("mouseleave", () => {lens.style.opacity = 0; 
+														 });/*sanft ausblenden*/
   				img.addEventListener("mousemove", moveLens);
 
 				
@@ -251,6 +255,7 @@
 </footer>
 
 </html>
+
 
 
 
