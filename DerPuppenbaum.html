@@ -149,7 +149,7 @@
 				</div>	
 
 			<script>
-			const zoom = 2.5; // 🔍 CHANGE ZOOM HERE
+			const zoom = 2.5; /* 🔍 CHANGE ZOOM HERE*/
 			const lens = document.getElementById("lens");
 			let activeImg = null;
 
@@ -158,6 +158,9 @@
 				img.addEventListener("mouseenter", () => activate(img));
   				img.addEventListener("mouseleave", deactivate);
   				img.addEventListener("mousemove", moveLens);
+
+				
+  				/*📱 touch support*/
 
   				img.addEventListener("touchstart", e => activate(img, e));
   				img.addEventListener("touchmove", moveLens);
@@ -221,6 +224,7 @@
 </footer>
 
 </html>
+
 
 
 
