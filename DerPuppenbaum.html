@@ -188,13 +188,15 @@
 				
   				/*📱 touch support*/
 
-  				img.addEventListener("touchstart", e => {e.preventDefault(); /* verhindert das seite scrollt*/
+  				img.addEventListener("touchstart", e => {lens.style.opacity = 1;
+														 e.preventDefault(); /* verhindert das seite scrollt*/
 														 activate(img, e.touches[0]);
 														});
   				img.addEventListener("touchmove", e => {e.preventDefault(); /* verhindert scrollen*/
 														moveLens(e.touches[0]);
 													   });
-  				img.addEventListener("touchend", deactivate);
+  				img.addEventListener("touchend", e => {lens.style.opacity = 0;
+													   deactivate});
 				});
 
 				function activate(img, e) {
@@ -255,6 +257,7 @@
 </footer>
 
 </html>
+
 
 
 
