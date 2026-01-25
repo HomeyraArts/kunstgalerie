@@ -49,7 +49,7 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 15px;
         }
-
+		
         .artwork {
             background-color: white;
             border-radius: 8px;
@@ -60,10 +60,18 @@
         }
 
         .artwork img {
+			position: relative;
+			display: inline-block;
+			overflow: hidden;
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+
+		.img-container {
+ 			position: relative;
+  			overflow: hidden;
+		}
 
         .artwork-content {
             padding: 20px;
@@ -75,7 +83,7 @@
             margin: 10px 0;
         }
 
-        .buy-button {
+		.buy-button {
             display: block;
             text-align: center;
             background-color: #111;
@@ -90,18 +98,23 @@
             background-color: #444;
         }
 
-        /* Über mich */
-        .about {
-            max-width: 700px;
-            margin: auto;
-            text-align: center;
-            line-height: 1.6;
-        }
+		#myImage {
+		    width: 100%;
+			cursor: none;
+			display: block;
+    	}
 
-        /* Kontakt */
-        .contact {
-            text-align: center;
-        }
+  	  	#lens {
+   			position: absolute;
+			border-radius: 50%;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      		width: 150px;
+      		height: 150px;
+      		background-repeat: no-repeat;
+			pointer-events: none;
+      		display: none;
+      		cursor: none;
+    	}
 
         footer {
             background-color: #111;
@@ -132,8 +145,41 @@
     <div class="gallery">
 
         <div class="artwork">
-            <img src="images\OnceUponaTime.JPG" alt="Kunstwerk 3">
-            <div class="artwork-content">
+			<div class="img-container">
+	            <img id="myImage" src="images\OnceUponaTime.JPG">
+				<div id="lens"></div>
+			</div>
+
+				<script>
+    			const img = document.getElementById("myImage");
+    			const lens = document.getElementById("lens");
+
+    			lens.style.backgroundImage = `url('${img.src}')`;
+    			lens.style.backgroundSize =	(img.width*2) + "px " + (img.height*2) + "px";
+
+    			img.addEventListener("mousemove", moveLens);
+    			lens.addEventListener("mousemove", moveLens);
+    			img.addEventListener("mouseenter", () => lens.style.display = "block");
+    			img.addEventListener("mouseleave", () => lens.style.display = "none");
+
+				function moveLens(e) {
+  					const rect = img.getBoundingClientRect();
+
+					let x = e.clientX - rect.left - lens.offsetWidth / 2;
+					let y = e.clientY - rect.top  - lens.offsetHeight / 2;
+
+  				/* keep lens inside image*/
+  					x = Math.max(0, Math.min(x, img.width - lens.offsetWidth));
+  					y = Math.max(0, Math.min(y, img.height - lens.offsetHeight));
+
+  					lens.style.left = x + "px";
+  					lens.style.top = y + "px";
+
+  					const zoom = 2;
+  					lens.style.backgroundPosition = `-${x * zoom}px -${y * zoom}px`;
+				}
+  			</script>
+    	        <div class="artwork-content">
                 
 		<p><strong>Geschichte: </strong>Es gab einen Ort, den nur drei kleine Mädchen kannten. Ein versteckter Garten, irgendwo im Iran, eingehüllt in Licht, Lachen und Maulbeerduft.
 Dort stand ein Maulbeerbaum mit weißen Früchten, weich, süß, klebrig – wie der Sommer selbst. Ihre kleinen Hände wurden davon klebrig und ihre Münder voll mit Sonne und Kindheit. Sie hatten Fahrräder, sie rasten um die Wette, und lachten so laut, dass selbst die Vögel staunten.In der Mitte des Gartens lag ein Marmorteich. Darin schwammen Goldfische, viele –aber jeden Tag verschwand einer. Nur ein einziger blieb. Die Kinder nannten ihn Wal.Weil sie glaubten , er sei zu groß für diesen Teich. Weil sie dachten, er würde bald ins weite Meer schwimmen. Er wurde zu einem Symbol. Für Mut und für Überleben.
@@ -170,6 +216,7 @@ Ihre Wahrheit.</p>
 </body>
 
 </html>
+
 
 
 
