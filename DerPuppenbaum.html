@@ -104,6 +104,8 @@
   			cursor: none;
 		}
 
+		/* Standard Lupe */
+
 		#lens {
   			position: absolute;
   			width: 220px;
@@ -117,6 +119,23 @@
   			z-index: 999;
 		}
 
+		/* Handy Lupe */
+
+		@media (max-width: 768px) {
+			#lens {
+  				position: absolute;
+  				width: 120px;
+  				height: 120px;
+  				border-radius: 50%;
+  				box-shadow: 0 0 15px rgba(0,0,0,0.35);
+  				background-repeat: no-repeat;
+  				pointer-events: none;
+  				display: none;
+  				cursor: none;
+  				z-index: 999;
+			}	
+		}
+		
         footer {
             background-color: #111;
             color: #aaa;
@@ -223,6 +242,7 @@
 </footer>
 
 </html>
+
 
 
 
