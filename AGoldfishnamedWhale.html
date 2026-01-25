@@ -49,7 +49,7 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 15px;
         }
-
+		
         .artwork {
             background-color: white;
             border-radius: 8px;
@@ -60,10 +60,18 @@
         }
 
         .artwork img {
+			position: relative;
+			display: inline-block;
+			overflow: hidden;
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+
+		.img-container {
+ 			position: relative;
+  			overflow: hidden;
+		}
 
         .artwork-content {
             padding: 20px;
@@ -75,7 +83,7 @@
             margin: 10px 0;
         }
 
-        .buy-button {
+		.buy-button {
             display: block;
             text-align: center;
             background-color: #111;
@@ -90,18 +98,23 @@
             background-color: #444;
         }
 
-        /* Über mich */
-        .about {
-            max-width: 700px;
-            margin: auto;
-            text-align: center;
-            line-height: 1.6;
-        }
+		#myImage {
+		    width: 100%;
+			cursor: none;
+			display: block;
+    	}
 
-        /* Kontakt */
-        .contact {
-            text-align: center;
-        }
+  	  	#lens {
+   			position: absolute;
+			border-radius: 50%;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      		width: 150px;
+      		height: 150px;
+      		background-repeat: no-repeat;
+			pointer-events: none;
+      		display: none;
+      		cursor: none;
+    	}
 
         footer {
             background-color: #111;
@@ -110,6 +123,7 @@
             padding: 20px;
             font-Größe: 14px;
         }
+
     </style>
 </head>
 
@@ -153,6 +167,7 @@
 </body>
 
 </html>
+
 
 
 
