@@ -222,13 +222,16 @@
 
 					
 				/* 📱 Touch: Lupe vom Finger wegschieben*/
-					if (e.touches) {
-  						x += touchOffsetX;
-  						y -= touchOffsetY;
-					}
+				if (e.touches) {
+  					if (point.clientY > rect.height / 2) {y -= touchOffsetY; // Finger unten → Lupe nach oben
+  														} else {y += touchOffsetY; // Finger oben → Lupe nach unten
+  																}
+				}
 
-					x = Math.max(-lens.offsetWidth/2, Math.min(x, activeImg.width - lens.offsetWidth/2));
-					y = Math.max(-lens.offsetHeight/2, Math.min(y, activeImg.height - lens.offsetHeight/2));
+					x = Math.max(0, Math.min(x, activeImg.width - lens.offsetWidth));
+					y = Math.max(0, Math.min(y, activeImg.height - lens.offsetHeight));
+					/*x = Math.max(-lens.offsetWidth/2, Math.min(x, activeImg.width - lens.offsetWidth/2));
+					y = Math.max(-lens.offsetHeight/2, Math.min(y, activeImg.height - lens.offsetHeight/2));*/
 
   					lens.style.left = x + "px";
   					lens.style.top  = y + "px";
@@ -263,6 +266,7 @@
 </footer>
 
 </html>
+
 
 
 
