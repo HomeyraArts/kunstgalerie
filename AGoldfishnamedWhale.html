@@ -146,12 +146,46 @@
     <div class="gallery">
 
         <div class="artwork">
-            <img src="images\AGoldfishnamedWhale.JPG" alt="Kunstwerk 3">
-            <div class="artwork-content">
-                
-                <p><strong>Materialien:</strong>Painting with acrylic markers and colored pencils on black watercolor paper</p>
-		<p><strong>Größe:</strong> 21 × 29,7 cm</p>
-                <p><strong>Preis:</strong> 250 €</p>
+			<div class="img-container">
+            	<img id="myImage" src="images\AGoldfishnamedWhale.JPG">
+				<div id="lens"></div>
+			</div>
+
+				<script>
+    			const img = document.getElementById("myImage");
+    			const lens = document.getElementById("lens");
+
+    			lens.style.backgroundImage = `url('${img.src}')`;
+    			lens.style.backgroundSize =	(img.width*2) + "px " + (img.height*2) + "px";
+
+    			img.addEventListener("mousemove", moveLens);
+    			lens.addEventListener("mousemove", moveLens);
+    			img.addEventListener("mouseenter", () => lens.style.display = "block");
+    			img.addEventListener("mouseleave", () => lens.style.display = "none");
+
+				function moveLens(e) {
+  					const rect = img.getBoundingClientRect();
+
+					let x = e.clientX - rect.left - lens.offsetWidth / 2;
+					let y = e.clientY - rect.top  - lens.offsetHeight / 2;
+
+  				/* keep lens inside image*/
+  					x = Math.max(0, Math.min(x, img.width - lens.offsetWidth));
+  					y = Math.max(0, Math.min(y, img.height - lens.offsetHeight));
+
+  					lens.style.left = x + "px";
+  					lens.style.top = y + "px";
+
+  					const zoom = 2;
+  					lens.style.backgroundPosition = `-${x * zoom}px -${y * zoom}px`;
+				}
+  			</script>
+				
+            	<div class="artwork-content">
+				            
+                <p><strong>Materialien: </strong>Painting with acrylic markers and colored pencils on black watercolor paper</p>
+				<p><strong>Größe: </strong> 21 × 29,7 cm</p>
+                <p><strong>Preis: </strong> 250 €</p>
                 <a class="buy-button" href="#">Jetzt kaufen</a>
             </div>
         </div>
@@ -167,6 +201,7 @@
 </body>
 
 </html>
+
 
 
 
