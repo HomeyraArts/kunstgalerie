@@ -122,13 +122,15 @@
   			background-repeat: no-repeat;
   			pointer-events: none;
   			cursor: none;
-  			z-index: 999;
+  			/*z-index: 999;*/
 		}
 
 		/* Handy Lupe */
 
 		@media (max-width: 768px) {
 			#lens {
+				transition: opacity 0.3s;
+				opacity: 1;
   				position: absolute;
   				width: 120px;
   				height: 120px;
@@ -137,7 +139,7 @@
   				background-repeat: no-repeat;
   				pointer-events: none;
   				cursor: none;
-  				z-index: 999;
+  				/*z-index: 999;*/
 			}	
 		}
 		
@@ -253,6 +255,7 @@
 </footer>
 
 </html>
+
 
 
 
