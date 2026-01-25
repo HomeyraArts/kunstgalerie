@@ -176,7 +176,6 @@
 
 			<script>
 			const zoom = 2; /* 🔍 CHANGE ZOOM HERE*/
-			/*const img =  document.getElementById("myImage")*/
 			const lens = document.getElementById("lens");
 			const touchOffsetY = 100;   // Abstand nach oben (px)
 			let activeImg = null;
@@ -214,17 +213,21 @@
   					if (!activeImg) return;
 
   					const rect = activeImg.getBoundingClientRect();
-  					const point = e.touches ? e.touches[0] : e;
+  					/*const point = e.touches ? e.touches[0] : e;*/
 
   					let x = point.clientX - rect.left - lens.offsetWidth / 2;
   					let y = point.clientY - rect.top  - lens.offsetHeight / 2;
 
 					
 				/* 📱 Touch: Lupe vom Finger wegschieben*/
-				if (e.touches) {
+				/*if (e.touches) {
   					if (point.clientY > rect.height / 2) {y -= touchOffsetY; // Finger unten → Lupe nach oben
   														} else {y += touchOffsetY; // Finger oben → Lupe nach unten
   																}
+				}*/
+
+				if (isTouch) {
+  					y -= touchOffsetY;
 				}
 
 					x = Math.max(- lens.offsetWidth/2, Math.min(x, activeImg.width - lens.offsetWidth/2));
@@ -265,6 +268,7 @@
 </footer>
 
 </html>
+
 
 
 
