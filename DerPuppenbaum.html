@@ -180,42 +180,31 @@
 
 				document.querySelectorAll(".zoom-img").forEach(img => {
 
-				img.addEventListener("mouseenter", () => {lens.style.display = "block";
-														  /*lens.style.opacity = 1;*/ 
-														 /*activate(img)*/}); /* wieder einblenden*/
-  				img.addEventListener("mouseleave", () => {lens.style.display = "none"
-														/*lens.style.opacity = 0;*/ 
-														 /*deactivate*/});/*sanft ausblenden*/
+				img.addEventListener("mouseenter", () => activate(img));
+  				img.addEventListener("mouseleave", deactivate);
   				img.addEventListener("mousemove", moveLens);
 
 				
   				/*📱 touch support*/
 
-  				img.addEventListener("touchstart", function(e) {/*lens.style.opacity = 1;*/
-																e.preventDefault(); /* verhindert das seite scrollt*/
-																lens.style.display = "block"; 
-																moveLens(e.touches[0]);
-																/*activate(img, e.touches[0]);*/
-																}, {passive: false});
-  				img.addEventListener("touchmove", function(e) {/*lens.style.opacity = 1;*/
-																e.preventDefault(); /* verhindert das seite scrollt*/
-																moveLens(e.touches[0]);
-																/*activate(img, e.touches[0]);*/
-																}, {passive: false});
-													   });
-  				img.addEventListener("touchend", function(e) {lens.style.display = "none";
+  				img.addEventListener("touchstart", e => {e.preventDefault(); /* verhindert das seite scrollt*/
+														activate(img, e.touches[0]);
+														});
+  				img.addEventListener("touchmove", e => {e.preventDefault(); /* verhindert das seite scrollt*/
+														moveLens(e.touches[0]);
+														});
+  				img.addEventListener("touchend", e => {deactivate
 															});
-				});
 
 				function activate(img, e) {
   				activeImg = img;
-  				lens.style.display = "block";
+  				lens.style.opacity = 1;
   				lens.style.backgroundImage = `url('${img.src}')`;
   				lens.style.backgroundSize =	img.width * zoom + "px " + img.height * zoom + "px";
 				}
 
 				function deactivate() {
-  				lens.style.display = "none";
+  				lens.style.opacity = 0
   				activeImg = null;
 				}
 
@@ -265,6 +254,7 @@
 </footer>
 
 </html>
+
 
 
 
