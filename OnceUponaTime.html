@@ -180,6 +180,7 @@
 			<script>
 			const zoom = 2; /* 🔍 CHANGE ZOOM HERE*/
 			const lens = document.getElementById("lens");
+			const touchOffsetY = 100;   // Abstand nach oben (px)
 			let activeImg = null;
 
 				document.querySelectorAll(".zoom-img").forEach(img => {
@@ -195,7 +196,7 @@
 														activate(img, e.touches[0]);
 														});
   				img.addEventListener("touchmove", e => {e.preventDefault(); /* verhindert das seite scrollt*/
-														moveLens(e.touches[0]);
+														moveLens(e.touches[0], true);
 														});
   				img.addEventListener("touchend", deactivate);
 
@@ -211,22 +212,20 @@
   				activeImg = null;
 				}
 
-				function moveLens(e) {
+				function moveLens(point, isTouch = false) {
   					if (!activeImg) return;
 
   					const rect = activeImg.getBoundingClientRect();
-  					const point = e.touches ? e.touches[0] : e;
 
   					let x = point.clientX - rect.left - lens.offsetWidth / 2;
   					let y = point.clientY - rect.top  - lens.offsetHeight / 2;
 
 					
 				/* 📱 Touch: Lupe vom Finger wegschieben*/
-					if (e.touches) {
-  						x += touchOffsetX;
+					if (isTouch) {
   						y -= touchOffsetY;
 					}
-
+	
 					x = Math.max(-lens.offsetWidth/2, Math.min(x, activeImg.width - lens.offsetWidth/2));
 					y = Math.max(-lens.offsetHeight/2, Math.min(y, activeImg.height - lens.offsetHeight/2));
 
@@ -276,6 +275,7 @@
 </body>
 
 </html>
+
 
 
 
