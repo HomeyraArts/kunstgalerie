@@ -140,7 +140,7 @@
             	<img id="myImage" src="images\DerPuppenbaum.JPG" >
 				<div id="lens"></div>
 
-					<script>
+			<script>
     			const img = document.getElementById("myImage");
     			const lens = document.getElementById("lens");
 
@@ -152,18 +152,22 @@
     			img.addEventListener("mouseenter", () => lens.style.display = "block");
     			img.addEventListener("mouseleave", () => lens.style.display = "none");
 
-			    function moveLens(e) {
-      				const rect = img.getBoundingClientRect();
-      				let x = e.clientX - rect.left;
-      				let y = e.clientY - rect.top;
+				function moveLens(e) {
+  					const rect = img.getBoundingClientRect();
 
-      				x = Math.max(0, Math.min(x, img.width - lens.offsetWidth));
-      				y = Math.max(0, Math.min(y, img.height - lens.offsetHeight));
+  					let x = e.clientX - rect.left;
+  					let y = e.clientY - rect.top;
 
-      				lens.style.left = x + "px";
-      				lens.style.top = y + "px";
-      				lens.style.backgroundPosition =	`-${x * 2}px -${y * 2}px`;
-    			}
+  				/* keep lens inside image*/
+  					x = Math.max(0, Math.min(x, img.width - lens.offsetWidth));
+  					y = Math.max(0, Math.min(y, img.height - lens.offsetHeight));
+
+  					lens.style.left = x + "px";
+  					lens.style.top = y + "px";
+
+  					const zoom = 2;
+  					lens.style.backgroundPosition = `-${x * zoom}px -${y * zoom}px`;
+				}
   			</script>
 		
             	<div class="artwork-content">
@@ -191,6 +195,7 @@
 </footer>
 
 </html>
+
 
 
 
