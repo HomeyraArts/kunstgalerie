@@ -186,8 +186,12 @@
 				
   				/*📱 touch support*/
 
-  				img.addEventListener("touchstart", e => activate(img, e));
-  				img.addEventListener("touchmove", moveLens);
+  				img.addEventListener("touchstart", e => {e.preventDefault(); /* verhindert das seite scrollt*/
+														 activate(img, e.touches[0]);
+														});
+  				img.addEventListener("touchmove", e => {e.preventDefault(); /* verhindert scrollen*/
+														moveLens(e.touches[0]);
+													   });
   				img.addEventListener("touchend", deactivate);
 				});
 
@@ -247,6 +251,7 @@
 </footer>
 
 </html>
+
 
 
 
