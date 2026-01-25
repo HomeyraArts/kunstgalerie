@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Kontaktformular</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        form {
+            max-width: 500px;
+            margin: 40px auto;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input, textarea, button {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        button {
+            display: block;
+            text-align: center;
+            background-color: #111;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #444;
+        }
+
+        body {
+            margin: 0;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f6f6f6;
+            color: #333;
+        }
+
+        header {
+            background-color: #111;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ddd;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        h2 {
+            text-align: center;
+         	margin-bottom: 40px;
+		font-size: 60px;
+        }
+
+        footer {
+    background-color: #111;
+    color: #aaa;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Homeyras Kunstgalerie</h1>
+    <p>Originale Kunstwerke</p>
+    <nav>
+        <a href="index.html">Werke</a>
+        <a href="uebermich.html">Über mich</a>
+        <a href="impressum.html">Kontakt</a>
+    </nav>
+</header>
+
+<form action="senden.php" method="post">
+    <h2>Kontaktformular</h2>
+
+    <input type="text" name="vorname" placeholder="Vorname (erforderlich)" required>
+    <input type="text" name="nachname" placeholder="Nachname (erforderlich)" required>
+    <input type="email" name="email" placeholder="E-Mail-Adresse (erforderlich)" required>
+
+    <textarea name="nachricht" rows="6" placeholder="Nachricht (erforderlich)" required></textarea>
+
+    <button type="submit">Nachricht senden</button>
+
+</form>
+
+<footer>
+    © 2026 Homeyra · Alle Rechte vorbehalten
+  <a href="impressum.html">Impressum</a>
+  <a href="datenschutz.html">Datenschutz</a>
+</footer>
+
+</body>
+
+</html>
