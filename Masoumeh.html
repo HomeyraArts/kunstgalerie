@@ -98,23 +98,50 @@
             background-color: #444;
         }
 
-		#myImage {
-		    width: 100%;
-			cursor: none;
-			display: block;
-    	}
+		.zoom-img {
+			-webkit-user-drag: none;
+			/* Safari / iOS*/
+			user-drag: none;
+			/* andere Browser*/
+			-webkit-touch-callout: none;
+			/* iOS: kein langes Tippen-Menü */
+  			width: 100%;
+  			cursor: none;
+		}
 
-  	  	#lens {
-   			position: absolute;
-			border-radius: 50%;
-			box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      		width: 150px;
-      		height: 150px;
-      		background-repeat: no-repeat;
-			pointer-events: none;
-      		display: none;
-      		cursor: none;
-    	}
+		/* Standard Lupe */
+
+		#lens {
+			transition: opacity 0.3s;
+			opacity: 0;
+  			position: absolute;
+  			width: 220px;
+  			height: 220px;
+  			border-radius: 50%;
+  			box-shadow: 0 0 15px rgba(0,0,0,0.35);
+  			background-repeat: no-repeat;
+  			pointer-events: none;
+  			cursor: none;
+  			z-index: 999;
+		}
+
+		/* Handy Lupe */
+
+		@media (max-width: 768px) {
+			#lens {
+				transition: opacity 0.3s;
+				opacity: 0;
+  				position: absolute;
+  				width: 120px;
+  				height: 120px;
+  				border-radius: 50%;
+  				box-shadow: 0 0 15px rgba(0,0,0,0.35);
+  				background-repeat: no-repeat;
+  				pointer-events: none;
+  				cursor: none;
+  				z-index: 999;
+			}	
+		}
 
         footer {
             background-color: #111;
@@ -146,39 +173,72 @@
 
         <div class="artwork">
 			<div class="img-container">
-	            <img id="myImage" src="images\Masoumeh.JPG">
+	            <img class="zoom-img" src="images\Masoumeh.JPG">
 					<div id="lens"></div>
 			</div>
 
-				<script>
-    			const img = document.getElementById("myImage");
-    			const lens = document.getElementById("lens");
+			<script>
+			const zoom = 2; /* 🔍 CHANGE ZOOM HERE*/
+			/*const img =  document.getElementById("myImage")*/
+			const lens = document.getElementById("lens");
+			let activeImg = null;
 
-    			lens.style.backgroundImage = `url('${img.src}')`;
-    			lens.style.backgroundSize =	(img.width*2) + "px " + (img.height*2) + "px";
+				document.querySelectorAll(".zoom-img").forEach(img => {
 
-    			img.addEventListener("mousemove", moveLens);
-    			lens.addEventListener("mousemove", moveLens);
-    			img.addEventListener("mouseenter", () => lens.style.display = "block");
-    			img.addEventListener("mouseleave", () => lens.style.display = "none");
+				img.addEventListener("mouseenter", () => activate(img));
+  				img.addEventListener("mouseleave", deactivate);
+  				img.addEventListener("mousemove", moveLens);
+
+				
+  				/*📱 touch support*/
+
+  				img.addEventListener("touchstart", e => {e.preventDefault(); /* verhindert das seite scrollt*/
+														activate(img, e.touches[0]);
+														});
+  				img.addEventListener("touchmove", e => {e.preventDefault(); /* verhindert das seite scrollt*/
+														moveLens(e.touches[0]);
+														});
+  				img.addEventListener("touchend", deactivate);
+
+				function activate(img, e) {
+  				activeImg = img;
+  				lens.style.opacity = 1;
+  				lens.style.backgroundImage = `url('${img.src}')`;
+  				lens.style.backgroundSize =	img.width * zoom + "px " + img.height * zoom + "px";
+				}
+
+				function deactivate() {
+  				lens.style.opacity = 0
+  				activeImg = null;
+				}
 
 				function moveLens(e) {
-  					const rect = img.getBoundingClientRect();
+  					if (!activeImg) return;
 
-					let x = e.clientX - rect.left - lens.offsetWidth / 2;
-					let y = e.clientY - rect.top  - lens.offsetHeight / 2;
+  					const rect = activeImg.getBoundingClientRect();
+  					const point = e.touches ? e.touches[0] : e;
 
-  				/* keep lens inside image*/
-  					x = Math.max(0, Math.min(x, img.width - lens.offsetWidth));
-  					y = Math.max(0, Math.min(y, img.height - lens.offsetHeight));
+  					let x = point.clientX - rect.left - lens.offsetWidth / 2;
+  					let y = point.clientY - rect.top  - lens.offsetHeight / 2;
+
+					
+				/* 📱 Touch: Lupe vom Finger wegschieben*/
+					if (e.touches) {
+  						x += touchOffsetX;
+  						y -= touchOffsetY;
+					}
+
+					x = Math.max(-lens.offsetWidth/2, Math.min(x, activeImg.width - lens.offsetWidth/2));
+					y = Math.max(-lens.offsetHeight/2, Math.min(y, activeImg.height - lens.offsetHeight/2));
 
   					lens.style.left = x + "px";
-  					lens.style.top = y + "px";
+  					lens.style.top  = y + "px";
 
-  					const zoom = 2;
   					lens.style.backgroundPosition = `-${x * zoom}px -${y * zoom}px`;
-				}
-  			</script>
+					}
+				});
+			</script>
+			
     	        <div class="artwork-content">
                 
 				<p><strong>Geschichte: </strong>Sie ist gewachsen, älter geworden. Doch in ihr lebt der Garten ihrer Kindheit: die heißen Sommertage, der Maulbeerbaum, das laute lebendige Lachen unter seinen Zweigen. Sie trägt all das in sich, vergisst nichts, verliert nichts. In ihren welligen Haaren sind Erinnerungen verborgen - lebendig wie die Fische, tief wie das Meer.
@@ -206,6 +266,7 @@
 </body>
 
 </html>
+
 
 
 
