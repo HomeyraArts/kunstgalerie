@@ -233,8 +233,8 @@
   					/*x = Math.max(0, Math.min(x, activeImg.width - lens.offsetWidth));
   					y = Math.max(0, Math.min(y, activeImg.height - lens.offsetHeight));*/
 
-  					lens.style.left = x + "px";
-  					lens.style.top  = y + "px";
+  					lens.style.left = rect.left + x + "px";
+  					lens.style.top  = rect.top + y + "px";
 
   					lens.style.backgroundPosition = `-${x * zoom}px -${y * zoom}px`;
 				}
@@ -265,6 +265,7 @@
 </footer>
 
 </html>
+
 
 
 
