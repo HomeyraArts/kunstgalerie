@@ -180,24 +180,31 @@
 
 				document.querySelectorAll(".zoom-img").forEach(img => {
 
-				img.addEventListener("mouseenter", () => {lens.style.opacity = 1; 
+				img.addEventListener("mouseenter", () => {lens.style.display = "block";
+														  /*lens.style.opacity = 1;*/ 
 														 /*activate(img)*/}); /* wieder einblenden*/
-  				img.addEventListener("mouseleave", () => {lens.style.opacity = 0; 
+  				img.addEventListener("mouseleave", () => {lens.style.display = "none"
+														/*lens.style.opacity = 0;*/ 
 														 /*deactivate*/});/*sanft ausblenden*/
   				img.addEventListener("mousemove", moveLens);
 
 				
   				/*📱 touch support*/
 
-  				img.addEventListener("touchstart", e => {lens.style.opacity = 1;
-														 e.preventDefault(); /* verhindert das seite scrollt*/
-														 activate(img, e.touches[0]);
-														});
-  				img.addEventListener("touchmove", e => {e.preventDefault(); /* verhindert scrollen*/
-														moveLens(e.touches[0]);
+  				img.addEventListener("touchstart", function(e) {/*lens.style.opacity = 1;*/
+																e.preventDefault(); /* verhindert das seite scrollt*/
+																lens.style.display = "block"; 
+																moveLens(e.touches[0]);
+																/*activate(img, e.touches[0]);*/
+																}, {passive: false});
+  				img.addEventListener("touchmove", function(e) {/*lens.style.opacity = 1;*/
+																e.preventDefault(); /* verhindert das seite scrollt*/
+																moveLens(e.touches[0]);
+																/*activate(img, e.touches[0]);*/
+																}, {passive: false});
 													   });
-  				img.addEventListener("touchend", e => {lens.style.opacity = 0;
-													   deactivate});
+  				img.addEventListener("touchend", function(e) {lens.style.display = "none";
+															});
 				});
 
 				function activate(img, e) {
@@ -258,6 +265,7 @@
 </footer>
 
 </html>
+
 
 
 
