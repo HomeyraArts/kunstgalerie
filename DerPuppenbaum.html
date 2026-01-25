@@ -178,8 +178,7 @@
 			const zoom = 2; /* 🔍 CHANGE ZOOM HERE*/
 			/*const img =  document.getElementById("myImage")*/
 			const lens = document.getElementById("lens");
-			const touchOffsetY = 80;   // Abstand nach oben (px)
-			const touchOffsetX = 0;    // optional seitlich
+			const touchOffsetY = 100;   // Abstand nach oben (px)
 			let activeImg = null;
 
 				document.querySelectorAll(".zoom-img").forEach(img => {
@@ -195,7 +194,7 @@
 														activate(img, e.touches[0]);
 														});
   				img.addEventListener("touchmove", e => {e.preventDefault(); /* verhindert das seite scrollt*/
-														moveLens(e.touches[0]);
+														moveLens(e.touches[0], true);
 														});
   				img.addEventListener("touchend", deactivate);
 
@@ -266,6 +265,7 @@
 </footer>
 
 </html>
+
 
 
 
