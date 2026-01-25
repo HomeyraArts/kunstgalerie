@@ -195,8 +195,7 @@
   				img.addEventListener("touchmove", e => {e.preventDefault(); /* verhindert das seite scrollt*/
 														moveLens(e.touches[0]);
 														});
-  				img.addEventListener("touchend", e => {deactivate
-															});
+  				img.addEventListener("touchend", deactivate);
 
 				function activate(img, e) {
   				activeImg = img;
@@ -256,6 +255,7 @@
 </footer>
 
 </html>
+
 
 
 
