@@ -60,10 +60,18 @@
         }
 
         .artwork img {
+			position: relative;
+			display: inline-block;
+			overflow: hidden;
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+
+		.img-container {
+ 			position: relative;
+  			overflow: hidden;
+		}
 
         .artwork-content {
             padding: 20px;
@@ -90,18 +98,23 @@
             background-color: #444;
         }
 
-        /* Über mich */
-        .about {
-            max-width: 700px;
-            margin: auto;
-            text-align: center;
-            line-height: 1.6;
-        }
+		#myImage {
+		    width: 100%;
+			cursor: none;
+			display: block;
+    	}
 
-        /* Kontakt */
-        .contact {
-            text-align: center;
-        }
+  	  	#lens {
+   			position: absolute;
+			border-radius: 50%;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      		width: 150px;
+      		height: 150px;
+      		background-repeat: no-repeat;
+			pointer-events: none;
+      		display: none;
+      		cursor: none;
+    	}
 
         footer {
             background-color: #111;
@@ -110,39 +123,69 @@
             padding: 20px;
             font-Größe: 14px;
         }
-    </style>
+</style>
+	
 </head>
-
 <body>
-
 <header>
     <h1>Homeyras Kunstgalerie</h1>
     <p>Originale Kunstwerke</p>
-    <nav>
-        <a href="index.html">Originale Werke</a>
-		<a href="https://www.inprnt.com/profile/homeira/">Prints</a>
-        <a href="uebermich.html">Über mich</a>
-        <a href="impressum.html">Kontakt</a>
-    </nav>
+	    <nav>
+	        <a href="index.html">Originale Werke</a>
+			<a href="https://www.inprnt.com/profile/homeira/">Prints</a>
+	        <a href="uebermich.html">Über mich</a>
+    	    <a href="impressum.html">Kontakt</a>
+    	</nav>
 </header>
 
 <section id="werke">
     <h2>Utopia</h2>
-
     <div class="gallery">
         <div class="artwork">
-            <img src="images\Utopia.JPG" alt="Kunstwerk 1">
+			<div class="img-container">
+            	<img id="myImage" src="images\Utopia.JPG">
+				<div id="lens"></div>
+			</div>
+
+			<script>
+    			const img = document.getElementById("myImage");
+    			const lens = document.getElementById("lens");
+
+    			lens.style.backgroundImage = `url('${img.src}')`;
+    			lens.style.backgroundSize =	(img.width*2) + "px " + (img.height*2) + "px";
+
+    			img.addEventListener("mousemove", moveLens);
+    			lens.addEventListener("mousemove", moveLens);
+    			img.addEventListener("mouseenter", () => lens.style.display = "block");
+    			img.addEventListener("mouseleave", () => lens.style.display = "none");
+
+				function moveLens(e) {
+  					const rect = img.getBoundingClientRect();
+
+					let x = e.clientX - rect.left - lens.offsetWidth / 2;
+					let y = e.clientY - rect.top  - lens.offsetHeight / 2;
+
+  				/* keep lens inside image*/
+  					x = Math.max(0, Math.min(x, img.width - lens.offsetWidth));
+  					y = Math.max(0, Math.min(y, img.height - lens.offsetHeight));
+
+  					lens.style.left = x + "px";
+  					lens.style.top = y + "px";
+
+  					const zoom = 2;
+  					lens.style.backgroundPosition = `-${x * zoom}px -${y * zoom}px`;
+				}
+  			</script>
+		
             <div class="artwork-content">
-                
-		<p><strong>Geschichte: </strong>Es gibt einen Ort, den ich nie mit den Augen gesehen habe, aber ich spüre ihn mit dem Herzen. Ein Ort ohne Krieg. Ohne Schreie. Ohne Angst.
-Dort wachsen keine Waffen, sondern Blumen. Dort fliegen keine Bomben, sondern Libellen. Die Sonne scheint jeden Tag, aber sie brennt nicht – sie wärmt, wie die Hand einer Mutter. Niemand läuft davon. Niemand versteckt sich. Niemand schlägt, niemand schreit. Man hört nur das leise Summen der Insekten, das Flüstern der Bäume, und das ruhige Atmen der Welt. Ich male diesen Ort, weil ich ihn brauche. Weil viele ihn brauchen. Weil es ihn noch nicht gibt – aber vielleicht, wenn wir ihn uns vorstellen, wenn wir ihn malen, wenn wir daran glauben, dann kann er Wirklichkeit werden. Ein Ort, wo Mädchen nicht weinen müssen. Wo Väter keine Wunden tragen. Wo Frauen frei tanzen können. Ein Ort, den ich Utopia nenne. Und jedes Mal, wenn ich die Farben berühre, bin ich schon ein Stück dort.</p>
+            	<p><strong>Geschichte: </strong>Es gibt einen Ort, den ich nie mit den Augen gesehen habe, aber ich spüre ihn mit dem Herzen. Ein Ort ohne Krieg. Ohne Schreie. Ohne Angst.
+				Dort wachsen keine Waffen, sondern Blumen. Dort fliegen keine Bomben, sondern Libellen. Die Sonne scheint jeden Tag, aber sie brennt nicht – sie wärmt, wie die Hand einer Mutter. Niemand läuft davon. Niemand versteckt sich. Niemand schlägt, niemand schreit. Man hört nur das leise Summen der Insekten, das Flüstern der Bäume, und das ruhige Atmen der Welt. Ich male diesen Ort, weil ich ihn brauche. Weil viele ihn brauchen. Weil es ihn noch nicht gibt – aber vielleicht, wenn wir ihn uns vorstellen, wenn wir ihn malen, wenn wir daran glauben, dann kann er Wirklichkeit werden. Ein Ort, wo Mädchen nicht weinen müssen. Wo Väter keine Wunden tragen. Wo Frauen frei tanzen können. Ein Ort, den ich Utopia nenne. Und jedes Mal, wenn ich die Farben berühre, bin ich schon ein Stück dort.</p>
                 <p><strong>Materialien:</strong> Mixed media piece using watercolour and coloured pencil on wartecolour paper</p>
                 <p><strong>Größe:</strong> 36 × 48 cm</p>
                 <p><strong>Preis:</strong> 700 €</p>
                 <a class="buy-button" href="#">Jetzt kaufen</a>
             </div>
         </div>
-
     </div>
 
 <footer>
@@ -154,6 +197,7 @@ Dort wachsen keine Waffen, sondern Blumen. Dort fliegen keine Bomben, sondern Li
 </body>
 
 </html>
+
 
 
 
