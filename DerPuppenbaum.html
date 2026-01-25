@@ -218,16 +218,21 @@
   					let x = point.clientX - rect.left - lens.offsetWidth / 2;
   					let y = point.clientY - rect.top  - lens.offsetHeight / 2;
 
+					
+				/* 📱 Touch: Lupe vom Finger wegschieben*/
+					if (e.touches) {
+  						x += touchOffsetX;
+  						y -= touchOffsetY;
+					}
+
 					x = Math.max(-lens.offsetWidth/2, Math.min(x, activeImg.width - lens.offsetWidth/2));
 					y = Math.max(-lens.offsetHeight/2, Math.min(y, activeImg.height - lens.offsetHeight/2));
-  					/*x = Math.max(0, Math.min(x, activeImg.width - lens.offsetWidth));
-  					y = Math.max(0, Math.min(y, activeImg.height - lens.offsetHeight));*/
 
   					lens.style.left = x + "px";
   					lens.style.top  = y + "px";
 
   					lens.style.backgroundPosition = `-${x * zoom}px -${y * zoom}px`;
-				}
+					}
 				});
 			</script>
 				
@@ -256,6 +261,7 @@
 </footer>
 
 </html>
+
 
 
 
