@@ -163,8 +163,8 @@
 
 			    function moveLens(e) {
       				const rect = img.getBoundingClientRect();
-      				let x = e.clientX - rect.left - lens.offsetWidth / 2;
-      				let y = e.clientY - rect.top - lens.offsetHeight / 2;
+      				let x = e.clientX - rect.left;
+      				let y = e.clientY - rect.top;
 
       				x = Math.max(0, Math.min(x, img.width - lens.offsetWidth));
       				y = Math.max(0, Math.min(y, img.height - lens.offsetHeight));
@@ -186,6 +186,7 @@
 </footer>
 
 </html>
+
 
 
 
