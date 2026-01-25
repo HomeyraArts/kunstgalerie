@@ -216,8 +216,7 @@
   					if (!activeImg) return;
 
   					const rect = activeImg.getBoundingClientRect();
-  					const point = e.touches ? e.touches[0] : e;
-
+  
   					let x = point.clientX - rect.left - lens.offsetWidth / 2;
   					let y = point.clientY - rect.top  - lens.offsetHeight / 2;
 
@@ -259,6 +258,7 @@
 </body>
 
 </html>
+
 
 
 
