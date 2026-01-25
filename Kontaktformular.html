@@ -87,13 +87,19 @@
     </nav>
 </header>
 
-<form action="senden.php" method="post">
+<form action="https://formspree.io/f/mpqdakry" method="POST">
     <h2>Kontaktformular</h2>
-
+	
+    <label>Vorname *</label>
     <input type="text" name="vorname" placeholder="Vorname (erforderlich)" required>
+
+	<label>Nachname *</label>
     <input type="text" name="nachname" placeholder="Nachname (erforderlich)" required>
+
+	<label>E-Mail *</label>
     <input type="email" name="email" placeholder="E-Mail-Adresse (erforderlich)" required>
 
+	<label>Nachricht *</label>
     <textarea name="nachricht" rows="6" placeholder="Nachricht (erforderlich)" required></textarea>
 
     <button type="submit">Nachricht senden</button>
@@ -110,3 +116,4 @@
 
 
 </html>
+
