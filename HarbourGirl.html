@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Kunstgalerie – Originale</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f6f6f6;
+            color: #333;
+        }
+
+        header {
+            background-color: #111;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ddd;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        section {
+            padding: 1px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+			font-size: 60px;
+        }
+
+        /* Galerie */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+		
+        .artwork {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .artwork img {
+			position: relative;
+			display: inline-block;
+			overflow: hidden;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+		.img-container {
+ 			position: relative;
+  			overflow: hidden;
+		}
+
+        .artwork-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .Preis {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+		.buy-button {
+            display: block;
+            text-align: center;
+            background-color: #111;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .buy-button:hover {
+            background-color: #444;
+        }
+
+		.zoom-img {
+			-webkit-user-drag: none;
+			/* Safari / iOS*/
+			user-drag: none;
+			/* andere Browser*/
+			-webkit-touch-callout: none;
+			/* iOS: kein langes Tippen-Menü */
+  			width: 100%;
+  			cursor: none;
+		}
+
+		/* Standard Lupe */
+
+		#lens {
+			transition: opacity 0.3s;
+			opacity: 0;
+  			position: absolute;
+  			width: 220px;
+  			height: 220px;
+  			border-radius: 50%;
+  			box-shadow: 0 0 15px rgba(0,0,0,0.35);
+  			background-repeat: no-repeat;
+  			pointer-events: none;
+  			cursor: none;
+  			z-index: 999;
+		}
+
+		/* Handy Lupe */
+
+		@media (max-width: 768px) {
+			#lens {
+				transition: opacity 0.3s;
+				opacity: 0;
+  				position: absolute;
+  				width: 120px;
+  				height: 120px;
+  				border-radius: 50%;
+  				box-shadow: 0 0 15px rgba(0,0,0,0.35);
+  				background-repeat: no-repeat;
+  				pointer-events: none;
+  				cursor: none;
+  				z-index: 999;
+			}	
+		}
+
+        footer {
+            background-color: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-Größe: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Homeyras Kunstgalerie</h1>
+    <p>Originale Kunstwerke</p>
+    <nav>
+        <a href="index.html">Originale Werke</a>
+		<a href="https://www.inprnt.com/profile/homeira/">Prints</a>
+        <a href="uebermich.html">Über mich</a>
+        <a href="impressum.html">Kontakt</a>
+    </nav>
+</header>
+
+<section id="werke">
+    <h2>In deinen Armen</h2>
+
+    <div class="gallery">
+
+        <div class="artwork">
+			<div class="img-container">
+            	<img class="zoom-img" src="images\HarbourGirl.JPG">
+				<div id="lens"></div>
+			</div>
+
+			<script>
+			const zoom = 2; /* 🔍 CHANGE ZOOM HERE*/
+			const touchOffsetY = 100;   // Abstand nach oben (px)
+			const lens = document.getElementById("lens");
+			let activeImg = null;
+
+				document.querySelectorAll(".zoom-img").forEach(img => {
+
+				img.addEventListener("mouseenter", () => activate(img));
+  				img.addEventListener("mouseleave", deactivate);
+  				img.addEventListener("mousemove", moveLens);
+
+				
+  				/*📱 touch support*/
+
+  				img.addEventListener("touchstart", e => {e.preventDefault(); /* verhindert das seite scrollt*/
+														activate(img, e.touches[0]);
+														});
+  				img.addEventListener("touchmove", e => {e.preventDefault(); /* verhindert das seite scrollt*/
+														moveLens(e.touches[0], true);
+														});
+  				img.addEventListener("touchend", deactivate);
+
+				function activate(img, e) {
+  				activeImg = img;
+  				lens.style.opacity = 1;
+  				lens.style.backgroundImage = `url('${img.src}')`;
+  				lens.style.backgroundSize =	img.width * zoom + "px " + img.height * zoom + "px";
+				}
+
+				function deactivate() {
+  				lens.style.opacity = 0
+  				activeImg = null;
+				}
+
+				function moveLens(point, isTouch = false) {
+  					if (!activeImg) return;
+
+  					const rect = activeImg.getBoundingClientRect();
+
+  					let x = point.clientX - rect.left - lens.offsetWidth / 2;
+  					let y = point.clientY - rect.top  - lens.offsetHeight / 2;
+
+					
+				/* 📱 Touch: Lupe vom Finger wegschieben*/
+					if (isTouch) {
+  						y -= touchOffsetY;
+					}
+
+					x = Math.max(-lens.offsetWidth/2, Math.min(x, activeImg.width - lens.offsetWidth/2));
+					y = Math.max(-lens.offsetHeight/2, Math.min(y, activeImg.height - lens.offsetHeight/2));
+
+  					lens.style.left = x + "px";
+  					lens.style.top  = y + "px";
+
+  					lens.style.backgroundPosition = `-${x * zoom}px -${y * zoom}px`;
+					}
+				});
+			</script>
+			
+            <div class="artwork-content">
+                
+		<p><strong>Größe:</strong> 24 × 18 cm</p>
+                <p><strong>Preis:</strong> 60 €</p>
+				<p><strong>Erstellungsdatum: </strong> 24ter Januar 2025</p>
+                <a class="buy-button" href="Kontaktformular.html">Jetzt kaufen</a>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    © 2026 Homeyra · Alle Rechte vorbehalten
+  <a href="impressum.html">Impressum</a>
+  <a href="datenschutz.html">Datenschutz</a>
+</footer>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
