@@ -149,54 +149,41 @@
     		user-select: none;
 		}
 
-.watermark2 {
-  position: absolute;
-  inset: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-family: "Montserrat", sans-serif;
-  font-size: clamp(24px, 7vw, 70px);
-  font-weight: 600;
-  letter-spacing: 10px;
-
-  color: rgba(255, 255, 255, 0.18);
-
-  user-select: none;
-  pointer-events: none;
-
-  transform: rotate(-12deg);
-  text-transform: uppercase;
-}
-.watermark3-grid {
-  position: absolute;
-  inset: 0;
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-
-  align-items: center;
-  justify-items: center;
-
-  pointer-events: none;
-}
-
-.watermark3-grid span {
-  font-family: "Montserrat", sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 3px;
-
-  color: rgba(255,255,255,0.16);
-
-  transform: rotate(-20deg);
-
-  user-select: none;
-}
-		
+		.watermark2 {
+  			position: absolute;
+	  		inset: 0;
+			display: flex;
+  			align-items: center;
+  			justify-content: center;
+			font-family: "Montserrat", sans-serif;
+  			font-size: clamp(24px, 7vw, 70px);
+  			font-weight: 600;
+  			letter-spacing: 10px;
+			color: rgba(255, 255, 255, 0.6);
+	  		user-select: none;
+  			pointer-events: none;
+			transform: rotate(-12deg);
+  			text-transform: uppercase;
+		}
+		.watermark3-grid {
+	  		position: absolute;
+  			inset: 0;
+			display: grid;
+  			grid-template-columns: repeat(3, 1fr);
+  			grid-template-rows: repeat(3, 1fr);
+			align-items: center;
+  			justify-items: center;
+			pointer-events: none;
+		}
+		.watermark3-grid span {
+	  		font-family: "Montserrat", sans-serif;
+  			font-size: 18px;
+  			font-weight: 600;
+  			letter-spacing: 3px;
+			color: rgba(255,255,255,0.6);
+  			transform: rotate(-20deg);
+			user-select: none;
+		}
 	</style>
 </head>
 <body>
