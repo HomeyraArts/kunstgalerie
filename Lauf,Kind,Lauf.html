@@ -161,14 +161,11 @@
     		top: 50%;
     		left: 50%;
     		transform: translate(-50%, -50%) rotate(-25deg);	
-		    font-size: 32px;
+	  		font-size: clamp(10px, 1.8vw, 22px);
     		font-weight: bold;
 		    color: rgba(255,255,255,0.18);
 		    pointer-events: none;
     		user-select: none;
-		}
-		.watermark-grid span {
-	  		font-size: clamp(10px, 1.8vw, 22px);
 		}
     </style>
 </head>
@@ -196,7 +193,7 @@
             		<div class="img-container">
                 		<img class="zoom-img" src="images\Lauf,Kind,Lauf.JPG">
 						<div id="lens"></div>
-						<div class="watermark-grid"><span>حمیرا</span></div>							
+						<div class="watermark">حمیرا</div>							
 					</div>
     			</div>		
 			<script>
