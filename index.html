@@ -64,39 +64,39 @@
             flex-direction: column;
         }
 
-/* Bereich unten */
-.artwork-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    margin-top: auto;
-}
+        /* Bereich unten */
+        .artwork-footer {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: auto;
+        }
+        
+        /* Status links */
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
 
-/* Status links */
-.status {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    font-weight: bold;
-}
+        /* Kreis */
+        .status-icon {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
 
-/* Kreis */
-.status-icon {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-}
+        /* Farben */
+        .status.verfuegbar .status-icon {
+            background-color: #2ecc71;
+        }
 
-/* Farben */
-.status.verfuegbar .status-icon {
-    background-color: #2ecc71;
-}
-
-.status.verkauft .status-icon {
-    background-color: #e74c3c;
-}
+        .status.verkauft .status-icon {
+            background-color: #e74c3c;
+        }
 		
         .artwork img {
             width: 100%;
