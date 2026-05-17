@@ -150,6 +150,22 @@
             padding: 20px;
             font-Größe: 14px;
         }
+/* Bild-Container */
+		.image-wrapper {
+    		position: relative;
+		}
+/* Wasserzeichen*/
+		.watermark {
+    		position: absolute;
+    		top: 50%;
+    		left: 50%;
+    		transform: translate(-50%, -50%) rotate(-25deg);	
+		    font-size: 32px;
+    		font-weight: bold;
+		    color: rgba(255,255,255,0.18);
+		    pointer-events: none;
+    		user-select: none;
+		}
     </style>
 </head>
 
@@ -172,10 +188,13 @@
     <div class="gallery">
 
         <div class="artwork">
-			<div class="img-container">
-            	<img class="zoom-img" src="images\Wingsofdarkness.JPEG" alt="Kunstwerk 3">
-				<div id="lens"></div>
-			</div>
+				<div class="image-wrapper">
+					<div class="img-container">
+            			<img class="zoom-img" src="images\Wingsofdarkness.JPEG" alt="Kunstwerk 3">
+						<div id="lens"></div>
+					</div>
+					<div class="watermark">حمیرا</div>
+    			</div>			
 
 			<script>
 			const zoom = 2; /* 🔍 CHANGE ZOOM HERE*/
