@@ -64,32 +64,6 @@
             flex-direction: column;
         }
 
-		/* Status-Kreis */
-		/*.status-icon {
-    		position: absolute;
-    		bottom: 70px; */  /* Abstand über dem Button */
-    		/*right: 20px;
-
-		    width: 18px;
-    		height: 18px;
-
-		    border-radius: 50%;
-    		border: 2px solid white;
-
-    		box-shadow: 0 0 5px rgba(0,0,0,0.3);
-    		z-index: 10;
-			}*/
-
-		/* Grün = verfügbar */
-		/*.status-icon.verfuegbar {
-    		background-color: #2ecc71;
-		}*/
-		
-		/* Rot = verkauft */
-		/*.status-icon.verkauft {
-    		background-color: #e74c3c;
-		}*/
-
 /* Bereich unten */
 .artwork-footer {
     display: flex;
@@ -246,7 +220,18 @@
                 
                 <p><strong>Größe:</strong> 48 x 36 cm<br>
                 <strong>Preis:</strong> 700 €</p>
-                <a class="buy-button" href="Utopia.html">Details</a>
+								<div class="artwork-footer">
+
+    <div class="status verfuegbar">
+        <span class="status-icon"></span>
+        <span>Verfügbar</span>
+    </div>
+
+    <a class="buy-button" href="Utopia.html">
+        Details
+    </a>
+
+</div>
             </div>
         </div>
 
