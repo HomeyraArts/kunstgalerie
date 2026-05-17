@@ -65,10 +65,10 @@
         }
 
 		/* Status-Kreis */
-		.status-icon {
+		/*.status-icon {
     		position: absolute;
-    		bottom: 70px;   /* Abstand über dem Button */
-    		right: 20px;
+    		bottom: 70px; */  /* Abstand über dem Button */
+    		/*right: 20px;
 
 		    width: 18px;
     		height: 18px;
@@ -78,17 +78,51 @@
 
     		box-shadow: 0 0 5px rgba(0,0,0,0.3);
     		z-index: 10;
-			}
+			}*/
 
 		/* Grün = verfügbar */
-		.status-icon.verfuegbar {
+		/*.status-icon.verfuegbar {
     		background-color: #2ecc71;
-		}
+		}*/
 		
 		/* Rot = verkauft */
-		.status-icon.verkauft {
+		/*.status-icon.verkauft {
     		background-color: #e74c3c;
-		}
+		}*/
+
+/* Bereich unten */
+.artwork-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    gap: 10px;
+}
+
+/* Status links */
+.status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Kreis */
+.status-icon {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+/* Farben */
+.status.verfuegbar .status-icon {
+    background-color: #2ecc71;
+}
+
+.status.verkauft .status-icon {
+    background-color: #e74c3c;
+}
 		
         .artwork img {
             width: 100%;
