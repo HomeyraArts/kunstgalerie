@@ -148,6 +148,27 @@
 		    pointer-events: none;
     		user-select: none;
 		}
+.watermark2 {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(24px, 7vw, 70px);
+  font-weight: 600;
+  letter-spacing: 10px;
+
+  color: rgba(255, 255, 255, 0.18);
+
+  user-select: none;
+  pointer-events: none;
+
+  transform: rotate(-12deg);
+  text-transform: uppercase;
+}
 	</style>
 </head>
 <body>
@@ -245,7 +266,7 @@
 				<a href="EinZuhauseausGeschichte.html">
 		            <img src="images\EinZuhauseausGeschichte.JPG" alt="Kunstwerk 7">
 				</a>
-        		<div class="watermark">© Homeyra</div>
+        		<div class="watermark2">حمیرا</div>
     		</div>
             <div class="artwork-content">
                 <h3>Ein Zuhause aus Geschichte</h3>
