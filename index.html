@@ -154,6 +154,29 @@
             padding: 20px;
             font-Größe: 14px;
         }
+
+/* Bild-Container */
+.image-wrapper {
+    position: relative;
+}
+
+/* Wasserzeichen */
+.watermark {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+    color: rgba(255,255,255,0.85);
+    font-size: 16px;
+    font-weight: bold;
+
+    background: rgba(0,0,0,0.35);
+    padding: 4px 10px;
+    border-radius: 5px;
+
+    pointer-events: none;
+}
+		
     </style>
 </head>
 
@@ -214,7 +237,7 @@
         				<span>Verfügbar</span>
     				</div>
 				
-    				<a class="buy-button" href="Utopia.html">
+    				<a class="buy-button" href="DerPuppenbaum.html">
         				Details
     				</a>
 				</div>
@@ -222,8 +245,12 @@
 		</div>
 		
         <div class="artwork">
-		    <a href="Utopia.html">
-            <img src="images\Utopia.JPG" alt="Kunstwerk 1"></a>
+			<div class="image-wrapper">
+		    	<a href="Utopia.html">
+            		<img src="images\Utopia.JPG" alt="Kunstwerk 1">
+				</a>
+        		<div class="watermark">© Homeyra</div>
+    		</div>
             <div class="artwork-content">
                 <h3>Utopia</h3>
                 
