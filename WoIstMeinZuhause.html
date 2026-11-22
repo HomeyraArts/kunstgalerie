@@ -235,6 +235,7 @@
   					if (!activeImg) return;
 
   					const rect = activeImg.getBoundingClientRect();
+  					/*const point = e.touches ? e.touches[0] : e;*/
   					
   					let x = point.clientX - rect.left - lens.offsetWidth / 2;
   					let y = point.clientY - rect.top  - lens.offsetHeight / 2;
@@ -270,15 +271,14 @@
                 <a class="buy-button" href="Kontaktformular.html">Jetzt kaufen</a>
             </div>
         </div>
-
     </div>
+
+</body>
 
 <footer>
     © 2026 Homeyra · Alle Rechte vorbehalten
   <a href="impressum.html">Impressum</a>
   <a href="datenschutz.html">Datenschutz</a>
-</footer>
-
-</body>
+</footer>	
 
 </html>
