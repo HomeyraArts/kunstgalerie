@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Kunstgalerie – Originale</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f6f6f6;
+            color: #333;
+        }
+
+        header {
+            background-color: #111;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ddd;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        section {
+            padding: 1px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+			font-size: 60px;
+        }
+
+        /* Galerie */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+		
+        .artwork {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .artwork img {
+			position: relative;
+			display: inline-block;
+			overflow: hidden;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .artwork-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .Preis {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+		.buy-button {
+            display: block;
+            text-align: center;
+            background-color: #111;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .buy-button:hover {
+            background-color: #444;
+        }
+
+		.img-container {
+ 			position: relative;
+  			overflow: hidden;
+		}		
+
+		.zoom-img {
+			-webkit-user-drag: none;
+			/* Safari / iOS*/
+			user-drag: none;
+			/* andere Browser*/
+			-webkit-touch-callout: none;
+			/* iOS: kein langes Tippen-Menü */
+  			width: 100%;
+  			cursor: none;
+		}
+
+		/* Standard Lupe */
+
+		#lens {
+			transition: opacity 0.3s;
+			opacity: 0;
+  			position: absolute;
+  			width: 220px;
+  			height: 220px;
+  			border-radius: 50%;
+  			box-shadow: 0 0 15px rgba(0,0,0,0.35);
+  			background-repeat: no-repeat;
+  			pointer-events: none;
+  			cursor: none;
+  			z-index: 999;
+		}
+
+		/* Handy Lupe */
+
+		@media (max-width: 768px) {
+			#lens {
+				transition: opacity 0.3s;
+				opacity: 0;
+  				position: absolute;
+  				width: 120px;
+  				height: 120px;
+  				border-radius: 50%;
+  				box-shadow: 0 0 15px rgba(0,0,0,0.35);
+  				background-repeat: no-repeat;
+  				pointer-events: none;
+  				cursor: none;
+  				z-index: 999;
+			}	
+		}
+
+        footer {
+            background-color: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-Größe: 14px;
+        }
+/* Bild-Container */
+		.image-wrapper {
+    		position: relative;
+		}
+/* Wasserzeichen*/
+		.watermark {
+    		position: absolute;
+    		top: 50%;
+    		left: 50%;
+    		transform: translate(-50%, -50%) rotate(-25deg);	
+		    font-size: 32px;
+    		font-weight: bold;
+		    color: rgba(255,255,255,0.18);
+		    pointer-events: none;
+    		user-select: none;
+		}
+
+	</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Homeyra | حمیرا</h1>
+    <p>Originale Kunstwerke</p>
+    <nav>
+        <a href="index.html">Originale Werke</a>
+		<a href="https://www.inprnt.com/profile/homeira/">Prints</a>
+        <a href="uebermich.html">Über mich</a>
+        <a href="impressum.html">Kontakt</a>
+    </nav>
+</header>
+
+<section id="werke">
+    <h2>Wo ist mein Zuhause?</h2>
+
+    <div class="gallery">
+
+        <div class="artwork">
+				<div class="image-wrapper">
+					<div class="img-container">
+	    	        	<img class="zoom-img" src="images\WoIstMeinZuhause.jpg">
+						<div id="lens"></div>
+					</div>
+					<div class="watermark">حمیرا</div>
+    			</div>
+			<script>
+			const zoom = 2; /* 🔍 CHANGE ZOOM HERE*/
+			const touchOffsetY = 100;   // Abstand nach oben (px)
+			const lens = document.getElementById("lens");
+			let activeImg = null;
+
+				document.querySelectorAll(".zoom-img").forEach(img => {
+
+				img.addEventListener("mouseenter", () => activate(img));
+  				img.addEventListener("mouseleave", deactivate);
+  				img.addEventListener("mousemove", moveLens);
+
+				
+  				/*📱 touch support*/
+
+  				img.addEventListener("touchstart", e => {e.preventDefault(); /* verhindert das seite scrollt*/
+														activate(img, e.touches[0]);
+														});
+  				img.addEventListener("touchmove", e => {e.preventDefault(); /* verhindert das seite scrollt*/
+														moveLens(e.touches[0], true);
+														});
+  				img.addEventListener("touchend", deactivate);
+
+				function activate(img, e) {
+  				activeImg = img;
+  				lens.style.opacity = 1;
+  				lens.style.backgroundImage = `url('${img.src}')`;
+  				lens.style.backgroundSize =	img.width * zoom + "px " + img.height * zoom + "px";
+				}
+
+				function deactivate() {
+  				lens.style.opacity = 0
+  				activeImg = null;
+				}
+
+				function moveLens(point, isTouch = false) {
+  					if (!activeImg) return;
+
+  					const rect = activeImg.getBoundingClientRect();
+  					/*const point = e.touches ? e.touches[0] : e;*/
+  					
+  					let x = point.clientX - rect.left - lens.offsetWidth / 2;
+  					let y = point.clientY - rect.top  - lens.offsetHeight / 2;
+
+					
+				/* 📱 Touch: Lupe vom Finger wegschieben*/
+				if (isTouch) {
+  					y -= touchOffsetY;
+				}
+
+					x = Math.max(-lens.offsetWidth/2, Math.min(x, activeImg.width - lens.offsetWidth/2));
+					y = Math.max(-lens.offsetHeight/2, Math.min(y, activeImg.height - lens.offsetHeight/2));
+
+  					lens.style.left = x + "px";
+  					lens.style.top  = y + "px";
+
+  					lens.style.backgroundPosition = `-${x * zoom}px -${y * zoom}px`;
+					}
+				});
+			</script>
+				
+            	<div class="artwork-content">
+				<p><strong>Geschichte: </strong>Als Kind faltete Masoumeh aus alten Zeitungsblättern kleine Origami-Boote.Manchmal setzte sie sich eines davon auf den Kopf und erklärte sich lachend zur Königin eines Reiches, das nur Kinder sehen konnten.Monireh bastelte aus Zeitungen lange Papierschwerter.Gemeinsam kämpften sie gegen unsichtbare Drachen, beschützten Bäume,Goldfische und ihre eigene Fantasie.Sie spielten,bis die Schwerter weich wurden,einrissen und schließlich auseinanderfielen.Dann lachten sie,setzten sich hin und bastelten neue.Damals war alles einfach.
+				Sie waren Kinder. Die Welt war klein.Und in dieser kleinen Welt war genug Platz für alles, was sie sich vorstellen konnten.Eines Tages sah Masoumeh die Zeichentrickserie „Nils Holgersson“.Sie sah die Gänse,die über Berge,Flüsse und Meere flogen, immer weiter, einem wärmeren Ort entgegen.Und sie begann zu träumen.Sie wollte fliegen.Sie wollte wissen,was hinter den Bergen lag,hinter dem Wasser,hinter dem Horizont.Sie wollte die große Welt sehen.Viele Jahre später öffnete sie die Augen.Die Decke über ihr war fremd.Die Wände waren fremd.Die Sprache war fremd.Und irgendwo zwischen all dem Neuen stellte sie sich leise eine Frage: „Wo ist mein Zuhause?“ Die Antwort kam langsam. „Ich weiß es nicht.“
+				Sie war weit entfernt von dem Garten ihrer Kindheit.Weit entfernt von dem Maulbeerbaum, dessen süße Früchte ihre Hände klebrig machten. Weit entfernt vom Marmorteich mit seinen Goldfischen,von der warmen Sonne auf ihrer Haut und von jenen langen Nachmittagen,an denen Fantasie wichtiger war als alles,was außerhalb des Gartens existierte.Sie war in einem anderen Land angekommen.Aber irgendwann verstand sie, dass Ankommen nicht dasselbe ist wie Heimkommen.
+				Denn sie vermisste nicht einfach ein Land.
+				Sie vermisste ein Gefühl.Ein Gefühl, das in diesem Garten gelebt hatte.In den Spielen mit Monireh.In den Papierschwertern,die zerbrachen und immer wieder neu entstanden.In dem Lachen zweier Kinder,die noch nicht wussten,wie groß die Welt war.Vielleicht war Heimat genau das gewesen.
+				Nicht die Mauern.Nicht die Straßen.Nicht einmal der Garten selbst.Sondern das Gefühl, irgendwo ganz selbstverständlich sein zu dürfen.</p>
+                <p><strong>Materialien: </strong>Gemälde mit Acrylmarkern und Buntstiften auf schwarzem Aquarellpapier.</p>
+				<p><strong>Größe: </strong> 21 × 29,7 cm</p>
+                <p><strong>Preis: </strong> 250 €</p>
+				<p><strong>Erstellungsdatum: </strong> 24ter Januar 2025</p>
+                <a class="buy-button" href="Kontaktformular.html">Jetzt kaufen</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<footer>
+    © 2026 Homeyra · Alle Rechte vorbehalten
+  <a href="impressum.html">Impressum</a>
+  <a href="datenschutz.html">Datenschutz</a>
+</footer>	
+
+</html>
